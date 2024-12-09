@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bem vindo ao site de adição de tarefas</h2>
+    <h4>Nesse site você pode adicionar, excluir e marcar como realizada.</h4>
+    <label for="acao">Adicione sua tarefa abaixo:</label><br>
+    <input type="text" id="tarefa" placeholder="Varrer casa" style="color: black;">
+    <button id="adicionar">Adicionar</button>
+
+    <div >
+        <li id="resultado" style= "list-style : none" ></li>
+    </div> 
+    
+
+    <!-- --------------------------------------------------------------------------------->
+
+    <script>
+        let tarefa = document.querySelector("#tarefa")
+        let adicionar = document.querySelector("#adicionar")
+        let resultado = document.querySelector("#resultado")
+
+        adicionar.addEventListener("click", function(){
+            let check = document.createElement("input")
+            let apagar = document.createElement("button")
+            let li = document.createElement("li")
+            
+            let click = document.createTextNode("X")
+            li.innerText = tarefa.value
+            resultado.appendChild(li)
+
+            
+            
+            check.type = "checkbox"
+            apagar.appendChild(click)
+
+            li.appendChild(check)
+            li.appendChild(apagar)
+            tarefa.value = ""
+
+            apagar.addEventListener("click", function(){
+                li.remove()
+            })
+
+            check.addEventListener("click", function(){
+                if (this.checked){
+                    li.style.textDecoration =  "line-through"
+                }else if (!this.checked){
+                    li.style.textDecoration =  "none"
+                }
+            })
+      
+
+        })
+
+
+        </script>
+
+        <style>
+            body{
+                background-color:black ;
+                color: yellow;
+                text-align: center;                
+                margin-top: 0%;
+                font-size:x-large;
+                font-size: 240%;
+                cursor: pointer;
+                          
+            }
+            
+
+        </style>
+
+</body>
+</html>
